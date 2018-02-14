@@ -16,8 +16,10 @@ SELECT
 FROM `ost_thread_event`
 LEFT JOIN `ost_staff`
 ON `ost_thread_event`.`staff_id`=`ost_staff`.`staff_id`
+LEFT JOIN `ost_thread`
+ON `ost_thread_event`.`thread_id`=`ost_thread`.`id`
 LEFT JOIN `ost_ticket__cdata`
-ON `ost_thread_event`.`thread_id`=`ost_ticket__cdata`.`ticket_id`
+ON `ost_thread`.`object_id`=`ost_ticket__cdata`.`ticket_id`
 ORDER BY `ost_thread_event`.`id` DESC
 LIMIT 1
 //
